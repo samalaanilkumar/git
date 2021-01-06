@@ -1,0 +1,9 @@
+#!bin/bash
+echo "samalaanilkumar"
+
+a = 30
+b = 53
+ 
+echo $a
+echo $b
+
