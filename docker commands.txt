@@ -1,0 +1,164 @@
+                                         DOCKER
+
+1.docker info-----how many container are running and stopped showing 
+2.docker images------list of the docker images
+3.docker search <centos>------how to search os
+4.docker pull centos------how to pull docker image into docker hub 
+5.docker run -it <centos>-----how to create container(always create new container)
+6.exit------------how to exit docker container without up and running
+7.docker ps ------------it will show all the runnning containers
+8.docker ps -a ------it will show all the containers
+9.crtl p+q ----it is using docker container exiting with up and running
+10.docker attach <container id>---how to enter existing container
+11.docker stop <container id>------how to stop docker container
+12.docker start <container id>------how to start docker container
+13.docker pause <container id>------how to pause docker container
+14.docker unpause <container id>----how to unpauser docker container
+15.docker stop <container id>
+   docker rm <container id>-----------how to delete docker container
+   (or)
+   docker rm -f <container id>
+16.docker run -itd centos--------container created but outside container 
+   docker run -it centos --------container created but inside container
+17.docker exec -it <container id> /bin/bash---in this way create a container after type exit command....it will show up and running
+18.docker commit <container id>------convert container to image
+19.docker tag <image id> "<name>"-----how to give name for docker image
+20.docker tag <image id> "<name>"-----how to give name for docker image
+   ----when the time of push the image to docker hub...we will give same 
+name dockerhub and docker image.....
+21.docker login------how to login dockerhub in docker
+22.docker logout-----how to logout dockerhub 
+before push the docker image we will write same name dockerhub and workstation
+docker tag <docker image> samalaanilkumar/<reponame>
+23.docker push <docker image>-------how to push dockerimage to dockerhub
+24.docker pull <docker image>-------how to download docker image into machine
+25.docker pull centos:6.6 ------how to download docker image version like
+26.docker run -it centos:6.6-----how to create container specific image
+27.docker ps -aq-------only showing container id's
+28.docker rm $(docker ps -aq)-----at a time all the contaiers deleted
+29.docker run -itd -v /opt/docker:/opt/docker centos-----shared data between the host and container
+     -v = volumes
+30.docker run -itd --volumes-from <container id> centos-----how to transfer volume to container
+31.how to create a docker file in vi editer
+   vi dockerfile:
+   FROM ubuntu:latest
+   MAINTAINER samalaanilkumar <samalaanilkumar3@gmail.com>
+   RUN touch /opt/anil  
+   RUN yum install git -y
+   RUN yum install java -y
+   RUN cd /opt/tomcat && wget https://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apahe-tomcat-9.0.27.tar.gz.
+   RUN cd /opt/tomcat && tar -xvf apache-tomcat-9.0.2.tar.gz
+   EXPOSE 8089
+   
+wq!
+
+how to build:
+
+   docker build -t "<myfirstimage>" .               --enter
+   docker images
+32.docker history <docker image(or)id>------it will show docker image history
+33.docker logs <container id>-----it will show container commands and logs
+34.docker pull nginx
+   docker run -itd -p 88:80 nginx
+
+leftside:define port no
+rightside:original port no(default port no)
+
+    docker ps  
+    googlecrome:-----<ipaddress>:portno
+                      192.168.101.20:88
+
+35.docker pull jenkins
+   docker run -itd -p 8085:8080 jenkins
+   
+googlecrome:<ipaddress>:portno
+   
+install it...
+
+36.docker kill <container id>(or)docker stop <container id>
+37.docker ps -l------it will show latest container information
+38.docker inspect <container id>--------container details
+39.docker restart <container id>----restart the container
+40.docker run -itd --name container1 centos--------create a name of container
+41.docker rename <existing name> <newname>----------how to rename container
+42.docker search -s 100 centos-----------rating based search container
+43.docker exec -it -u anilkumar <container id> /bin/bash-----how to enter a specific user to container
+44.docker run -it -h <hostname> centos:7---- how to create a hostname in create a container
+45.docker top  <container id>------it will show container information
+46.docker stats <container id>-----it will show container statistics
+47.docker run -it -m 550M centos:7----how to give limit mb(or)gb space in container
+48.docker events-----it will show all containers information
+49.docker events --since "1h"-----it will show last 1hour information
+50.docker events --filter event=attach----it will show attach information
+51.docker network ls----it will show all the network information
+52.docker network inspect <network name>----it will show specific network information
+53.docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range 10.1.5.0/24 --driver bridge --label=testnetwork bridge1 ----------create a network
+54.yum install net-tools-----it is using for network commands
+55.hostname -I
+56.docker run -it --net bridge1 centos:7----it will give container ip address
+57.docker run -it --net bridge1 --ip 10.1.5.99 centos:7
+58.docker run -it --name server11 --net bridge1 --ip 10.1.5.98 centos:7
+59.docker network rm <network name>---how to delete network
+60. how to link two containers
+        docker pull wordpress
+        docker pull mysql:5.6
+        docker run -itd --name mydb -e MYSQL_ROOT_PASSWORD=12345 MYSQL:5.6
+        docker ps
+ 
+        docker run -itd -p 8087:80 wordpress
+        iptables -F
+  check googlecrome: <ipaddress>:8087
+        
+        docker ps
+        docker run -itd --name dbword --link mydb:mysql -p 86:80 wordpress
+        docker ps
+   check googlecrome: <ipaddress>:86
+
+                    (or)
+
+install docker compose 
+follow this steps:
+url:   docs.docker.com/compose/wordpress/#define-the-project
+
+vi docker compose.yml
+--------
+-------
+-------
+wq:
+          docker images 
+          docker ps
+          docker-compose up -d
+          docker ps
+    check googlecrome: <ipaddress>:8000
+  
+          
+
+61.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
